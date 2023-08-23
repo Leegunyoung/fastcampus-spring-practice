@@ -2,14 +2,17 @@ package org.example.service;
 
 import org.example.logic.JavaSort;
 import org.example.logic.Sort;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class SortService {
 
     private final Sort<String> sort;
 
-    public SortService(Sort<String> sort){
+    public SortService(@Qualifier("bubbleSort")Sort<String> sort){
         this.sort=sort;
         System.out.println("구현체: " + sort.getClass().getName());
     }
